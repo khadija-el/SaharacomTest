@@ -19,6 +19,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import {  MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,10 @@ import { MatDividerModule } from '@angular/material/divider';
     
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[
+    // CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppModule {
   constructor(private injector: Injector) {    // Create global Service Injector.
