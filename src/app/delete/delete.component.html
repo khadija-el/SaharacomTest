@@ -1,0 +1,13 @@
+<div class="dialog">
+    <h1 mat-dialog-title>Suppression {{model}} </h1>
+    <mat-dialog-content>
+      <p>Voulez-vous vraiment supprimer ?</p>
+    </mat-dialog-content>
+  
+    <mat-dialog-actions align="end">
+      <button mat-button (click)="onNoClick()" type="button">Annuler</button>
+      <button mat-button [mat-dialog-close]="" color="primary" type="button" (click)="onOkClick()"
+        cdkFocusInitial>Ok</button>
+    </mat-dialog-actions>
+  </div>
+  

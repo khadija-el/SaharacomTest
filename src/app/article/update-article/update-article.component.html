@@ -1,0 +1,87 @@
+
+<mat-card>
+    <mat-card-title>{{title}}</mat-card-title>
+        <mat-card-content>
+    
+            <form [formGroup]="myForm" class="flex flex-row flex-wrap">
+    
+                    <!-- <div  class="w-full p-1">
+                        <app-upload-image *ngIf="myForm" [imageUrlFC]="imagesFC" [disabled]="o.id === 0" [multiple]="true" [folderToSaveInServer]="'Article_' + o.id">
+                        </app-upload-image>
+                    </div> -->
+    
+                    <mat-form-field appearance="fill" class="w-1/2 p-1">
+                        <mat-label>Ref Fournisseur</mat-label>
+                        <input matInput formControlName="refFournisseur" type="text" required>
+                    </mat-form-field>
+    
+                    <mat-form-field appearance="fill" class="w-1/2 p-1">
+                        <mat-label>Designation</mat-label>
+                        <input matInput formControlName="designation" type="text" required>
+                    </mat-form-field>
+    
+                   
+                    <mat-form-field appearance="fill" class="w-1/2 p-1">
+                        <mat-label>Info</mat-label>
+                        <input matInput formControlName="info" type="text" required>
+                    </mat-form-field>
+                    <mat-divider></mat-divider>
+                    <mat-form-field appearance="fill" class="w-1/2 p-1">
+                        <mat-label>PUA HT</mat-label>
+                        <input matInput formControlName="prixAchatHT" type="text" required>
+                    </mat-form-field>
+    
+                    <mat-form-field appearance="fill" class="w-1/2 p-1">
+                        <mat-label>PUA TTC</mat-label>
+                        <input matInput formControlName="prixAchatTTC" type="text" required>
+                    </mat-form-field>
+    
+                    <mat-form-field appearance="fill" class="w-1/2 p-1">
+                        <mat-label>PUV HT</mat-label>
+                        <input matInput formControlName="prixVenteHT" type="text" required>
+                    </mat-form-field>
+    
+                    <mat-form-field appearance="fill" class="w-1/2 p-1">
+                        <mat-label>PUV TTC</mat-label>
+                        <input matInput formControlName="prixVenteTTC" type="text" required>
+                    </mat-form-field>
+                    <mat-divider [inset]="true"></mat-divider>
+                    <mat-form-field appearance="fill" class="w-1/4 p-1">
+                        <mat-label>Stock Initial</mat-label>
+                        <input matInput formControlName="stockInitial" type="number" required>
+                    </mat-form-field>
+    
+                    <mat-form-field appearance="fill" class="w-1/4 p-1">
+                        <mat-label>Stock Final</mat-label>
+                        <input matInput formControlName="stockFinal" type="number" required>
+                    </mat-form-field>
+    
+                    <mat-form-field appearance="fill" class="w-1/4 p-1">
+                        <mat-label>Qte Entree</mat-label>
+                        <input matInput formControlName="qteEntree" type="number" required readonly="true">
+                    </mat-form-field>
+    
+                    <mat-form-field appearance="fill" class="w-1/4 p-1">
+                        <mat-label>Qte Sortie</mat-label>
+                        <input matInput formControlName="qteSortie" type="number" required readonly="true">
+                    </mat-form-field>
+    
+            </form>
+    
+        </mat-card-content>
+    
+        <mat-card-actions>
+            <div class="w-full flex justify-between">
+                <div>
+                    <button mat-raised-button color="warn" (click)="delete(myForm.value)"
+                    [disabled]="myForm.get('id').value === 0">Delete</button>
+                </div>
+                <div>
+                    <button mat-button (click)="back()">Retour</button>
+                    <button mat-raised-button color="primary" (click)="submit(myForm.value)"
+                    [disabled]="myForm.invalid">Valider</button>
+                </div>
+            </div>
+      </mat-card-actions>
+    </mat-card>
+    
