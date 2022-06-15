@@ -9,7 +9,7 @@ const API_URL = environment.apiUrl + '/articles';
 })
 export class ArticleService  extends SuperService<any>  {
 
-  constructor() { 
-    super('articles');
+  constructor() {
+    super('Article');
   }
 }
