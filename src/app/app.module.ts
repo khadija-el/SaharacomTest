@@ -15,6 +15,10 @@ import { ClientComponent } from './client/client.component';
 import { UpdateComponent } from './client/update/update.component';
 import { DeleteComponent } from './delete/delete.component';
 import { UpdateArticleComponent } from './article/update-article/update-article.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {  MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -33,6 +37,11 @@ import { UpdateArticleComponent } from './article/update-article/update-article.
     ReactiveFormsModule,
     MatModule,
     HttpClientModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatButtonModule,
+    MatIconModule,
+    MatDividerModule,
     
   ],
   providers: [],
