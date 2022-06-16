@@ -2,18 +2,18 @@ export class Article {
     id = 0;
     reference = '';
     designation = '';
-    stockFinal = '';
-    stockInitial = '';
-    qteVendue = '';
-    qteAcheté = '';
-    stockMinimal = '';
-    prixAchatHT = '';
-    prixAchatTTC = false;
-    prixVenteHT = 0;
-    prixVenteTTC = 0;
+    stockfinal = 0;
+    stockinitial = 0;
+    qtevendue = 0;
+    qteachete = 0;
+    stockminimal = 0;
+    prixachatHt =0;
+    prixachatttc = 0;
+    prixventeHt = 0;
+    prixventettc = 0;
     info='';
     detailLivraisonClients: DetailLivraisonClient[] = [];
- 
+
   }
   export class Client {
     id = 0;
@@ -36,7 +36,7 @@ export class Article {
     idClient = null;
     detailLivraisonClients: DetailLivraisonClient[] = [];
   }
-  
+
   export class DetailLivraisonClient {
     id = 0;
     numero = '';
@@ -58,5 +58,4 @@ export class Article {
     designation='';
     taux=0
   }
-  
-  
+

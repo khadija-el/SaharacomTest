@@ -16,7 +16,7 @@ export class UpdateArticleComponent implements OnInit,OnDestroy {
   myForm: FormGroup;
   o = new Article();
   title = 'Article';
-  
+
   constructor(private fb: FormBuilder, private uow: UowService
     , private route: ActivatedRoute, private router: Router) { }
 
@@ -54,13 +54,12 @@ export class UpdateArticleComponent implements OnInit,OnDestroy {
 
   submit(o: Article): void {
     let sub = null;
-    
+
     if (o.id === 0) {
       console.log(o);
       sub = this.uow.articles.post(o).subscribe(r => {
         console.log("<<<<<<<<<<<<<");
         this.uow.snackAdd();
-        this.emitUploadSubmit()
 
         this.o = r;
         this.createForm();
@@ -68,10 +67,10 @@ export class UpdateArticleComponent implements OnInit,OnDestroy {
       });
     } else {
       console.log("<<<<<<<<<<<<<");
-      
+
       sub = this.uow.articles.put(o.id, o).subscribe(r => {
         this.uow.snackUpdate();
-        this.emitUploadSubmit()
+        // this.emitUploadSubmit()
       });
     }
 
@@ -81,26 +80,19 @@ export class UpdateArticleComponent implements OnInit,OnDestroy {
   createForm() {
     this.myForm = this.fb.group({
       id: [this.o.id, [Validators.min(1),]],
-      refFournisseur: [this.o.reference, []],
+      reference: [this.o.reference, []],
       designation: [this.o.designation, []],
-      stockInitial: [this.o.stockInitial, [Validators.min(1),]],
-      stockFinal: [this.o.stockFinal, [Validators.min(1),]],
-      qteEntree: [this.o.qteAcheté, [Validators.min(1),]],
-      qteSortie: [this.o.qteVendue, [Validators.min(1),]],
-      prixAchatHT: [this.o.prixAchatHT, []],
-      prixAchatTTC: [this.o.prixAchatTTC, []],
-      prixVenteHT: [this.o.prixVenteHT, []],
-      prixVenteTTC: [this.o.prixVenteTTC, []],
+      stockinitial: [this.o.stockinitial, [Validators.min(1),]],
+      stockfinal: [this.o.stockfinal, [Validators.min(1),]],
+      qteachete: [this.o.qteachete, [Validators.min(1),]],
+      qtevendue: [this.o.qtevendue, [Validators.min(1),]],
+      prixachatHt: [this.o.prixachatHt, []],
+      prixachatttc: [this.o.prixachatttc, []],
+      prixventeHt: [this.o.prixventeHt, []],
+      prixventettc: [this.o.prixventettc, []],
       info: [this.o.info, []],
-     
+
     });
-  }
-
-  get imagesFC() { return this.myForm.get('images') as FormControl }
-
-  emitUploadSubmit() {
-    (this.imagesFC as any).isUploaded = true;
-    this.imagesFC.setValue(this.imagesFC.value, { onlySelf: true });
   }
 
 
