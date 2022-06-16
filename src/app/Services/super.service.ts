@@ -46,6 +46,10 @@ export class SuperService<T> implements ISuperService {
     // // console.log("updating : ", o)
     return this.http.post(`${this.urlApi}/${this.controller}/autocompletePost`, {column, name});
   }
+  deleteRangeByIds(ids: number[]) {
+    return this.http.post(`${this.urlApi}/${this.controller}/deleteRangeByIds`, ids);
+  }
+
 }
 
 interface ISuperService {

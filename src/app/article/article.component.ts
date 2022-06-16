@@ -29,26 +29,25 @@ export class ArticleComponent implements OnInit,OnDestroy {
   selectedList: Article[] = [];
 
   displayedColumns = [
-    // 'select',
+    //  'select',
     'reference',
     'designation',
-    'stockInitial',
-    'stockFinal',
-    'qteEntree',
-    'qteSortie',
-    'prixAchatHT',
-    'prixAchatTTC',
-    'prixVenteHT',
-    'prixVenteTTC',
+    'stockinitial',
+    'stockfinal',
+    'qteacheté',
+    'qtevendue',
+    'prixachatht',
+    'prixachatttc',
+    'prixventeht',
+    'prixventettc',
     'info',
-    // 'option'
+    'option'
   ];
 
   panelOpenState = false;
 
   now = new Date();
   reference = new FormControl('');
-
   designation = new FormControl('');
 
 
@@ -90,6 +89,37 @@ export class ArticleComponent implements OnInit,OnDestroy {
     );
 
     this.subs.push(sub);
+  }
+
+  add() {
+    // this.router.navigate(['update', 0], { relativeTo: this.route });
+    this.router.navigate(['/update', 0]);
+  }
+
+  edit(o: Article) {
+    // this.router.navigate(['update', o.id], { relativeTo: this.route });
+    this.router.navigate(['/update', o.id]);
+
+  }
+
+  async delete(o: Article) {
+    const r = await this.uow.deleteDialog.openDialog('Article').toPromise();
+    if (r === 'ok') {
+      const sub = this.uow.articles.delete(o.id).subscribe(() => this.update.next(true));
+
+      this.subs.push(sub);
+    }
+  }
+  async deleteList() {
+    const r = await this.uow.deleteDialog.openDialog('Article').toPromise();
+    if (r === 'ok') {
+      const sub = this.uow.articles.deleteRangeByIds(this.selectedList.map(e => e.id)).subscribe(() => {
+        this.selectedList = [];
+        this.update.next(true);
+      });
+
+      this.subs.push(sub);
+    }
   }
 
 }

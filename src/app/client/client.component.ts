@@ -68,7 +68,7 @@ export class ClientComponent implements OnInit, OnDestroy {
           this.paginator.pageSize,
           this.sort.active ? this.sort.active : 'id',
           this.sort.direction ? this.sort.direction : 'desc',
-          this.raisonSocial.value === '' ? '*' : this.raisonSocial.value,
+          // this.raisonSocial.value === '' ? '*' : this.raisonSocial.value,
 
         );
       }
@@ -88,8 +88,8 @@ export class ClientComponent implements OnInit, OnDestroy {
     this.update.next(true);
   }
 
-  getPage(startIndex, pageSize, sortBy, sortDir, raisonSocial) {
-    const sub = this.uow.clients.getAll(startIndex, pageSize, sortBy, sortDir, raisonSocial).subscribe(
+  getPage(startIndex, pageSize, sortBy, sortDir) {
+    const sub = this.uow.clients.getList(startIndex, pageSize, sortBy, sortDir).subscribe(
       (r: any) => {
         console.log(r.list);
         this.dataSource = r.list;

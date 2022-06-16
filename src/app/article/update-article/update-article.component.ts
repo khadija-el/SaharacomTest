@@ -54,8 +54,11 @@ export class UpdateArticleComponent implements OnInit,OnDestroy {
 
   submit(o: Article): void {
     let sub = null;
+    
     if (o.id === 0) {
+      console.log(o);
       sub = this.uow.articles.post(o).subscribe(r => {
+        console.log("<<<<<<<<<<<<<");
         this.uow.snackAdd();
         this.emitUploadSubmit()
 
@@ -64,6 +67,8 @@ export class UpdateArticleComponent implements OnInit,OnDestroy {
         this.router.navigate([this.router.url.replace(this.route.snapshot.paramMap.get('id'), r.id.toString())]);
       });
     } else {
+      console.log("<<<<<<<<<<<<<");
+      
       sub = this.uow.articles.put(o.id, o).subscribe(r => {
         this.uow.snackUpdate();
         this.emitUploadSubmit()
