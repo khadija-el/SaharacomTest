@@ -79,8 +79,6 @@ export class ClientComponent implements OnInit, OnDestroy {
 
   reset() {
     this.raisonSocial.setValue('');
-
-
     this.update.next(true);
   }
 
@@ -103,11 +101,15 @@ export class ClientComponent implements OnInit, OnDestroy {
 
 
   add() {
-    this.router.navigate(['update', 0], { relativeTo: this.route });
+    // this.router.navigate(['updateC', 0], { relativeTo: this.route });
+     this.router.navigate(['/updateC',0]);
+
   }
 
   edit(o: Client) {
-    this.router.navigate(['update', o.id], { relativeTo: this.route });
+    // this.router.navigate(['updateC', o.id], { relativeTo: this.route });
+    this.router.navigate(['/updateC',o.id]);
+
   }
 
   async delete(o: Client) {
@@ -162,9 +164,9 @@ export class ClientComponent implements OnInit, OnDestroy {
   // }
 
   ngOnDestroy(): void {
-    this.subs.forEach(e => {
-      e.unsubscribe();
-    });
+    // this.subs.forEach(e => {
+    //   e.unsubscribe();
+    // });
   }
 
 }

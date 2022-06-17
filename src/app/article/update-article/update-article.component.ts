@@ -10,7 +10,7 @@ import { UowService } from 'src/app/Services/uow.service';
   templateUrl: './update-article.component.html',
   styleUrls: ['./update-article.component.scss']
 })
-export class UpdateArticleComponent implements OnInit,OnDestroy {
+export class UpdateArticleComponent implements OnInit, OnDestroy {
   subs: Subscription[] = [];
 
   myForm: FormGroup;
@@ -25,13 +25,13 @@ export class UpdateArticleComponent implements OnInit,OnDestroy {
 
     const id = +this.route.snapshot.paramMap.get('id');
 
-      if (id !== 0) {
-        this.uow.articles.getById(id).subscribe(r => {
-          this.o = r;
-          this.createForm();
-          // this.myForm.patchValue(this.o);
-        })
-      }
+    if (id !== 0) {
+      this.uow.articles.getById(id).subscribe(r => {
+        this.o = r;
+        this.createForm();
+        // this.myForm.patchValue(this.o);
+      })
+    }
 
   }
 
@@ -48,8 +48,9 @@ export class UpdateArticleComponent implements OnInit,OnDestroy {
   }
 
   back(): void {
+    //  this.router.navigate([this.router.url.substring(0, this.router.url.indexOf('/update'))]);
+     this.router.navigate(['/article']);
 
-    this.router.navigate([this.router.url.substring(0, this.router.url.indexOf('/update'))]);
   }
 
   submit(o: Article): void {
@@ -58,7 +59,6 @@ export class UpdateArticleComponent implements OnInit,OnDestroy {
     if (o.id === 0) {
       console.log(o);
       sub = this.uow.articles.post(o).subscribe(r => {
-        console.log("<<<<<<<<<<<<<");
         this.uow.snackAdd();
 
         this.o = r;
@@ -66,7 +66,6 @@ export class UpdateArticleComponent implements OnInit,OnDestroy {
         this.router.navigate([this.router.url.replace(this.route.snapshot.paramMap.get('id'), r.id.toString())]);
       });
     } else {
-      console.log("<<<<<<<<<<<<<");
 
       sub = this.uow.articles.put(o.id, o).subscribe(r => {
         this.uow.snackUpdate();
