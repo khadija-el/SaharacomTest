@@ -18,6 +18,9 @@ export class SuperService<T> implements ISuperService {
   }
   get = () => this.http.get<T[]>(`${this.urlApi}/${this.controller}/get`);
   count = () => this.http.get<number>(`${this.urlApi}/${this.controller}/count`);
+
+  getForSelect = () => this.http.get<{id: number, name: string}[]>(`${this.urlApi}/${this.controller}/getForSelect`);
+  
   getById = (id) => this.http.get<T>(`${this.urlApi}/${this.controller}/get/${id}`);
   post = (o: T) => this.http.post<T>(`${this.urlApi}/${this.controller}/post`, o);
   put = (id: number | string, o: T) => this.http.put<any>(`${this.urlApi}/${this.controller}/put/${id}`, o);

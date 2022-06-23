@@ -1,4 +1,4 @@
-import { Injector, NgModule } from '@angular/core';
+import { Injector, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +20,8 @@ import {  MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
+import { LivraisonClientComponent } from './livraison-client/livraison-client.component';
+import { UpdateLivraisonComponent } from './livraison-client/update-livraison/update-livraison.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
     UpdateComponent,
     DeleteComponent,
     UpdateArticleComponent,
+    LivraisonClientComponent,
+    UpdateLivraisonComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
     MatDividerModule,
     
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr-FR'},
+  ],
   bootstrap: [AppComponent],
   schemas:[
     // CUSTOM_ELEMENTS_SCHEMA

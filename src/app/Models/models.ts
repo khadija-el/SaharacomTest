@@ -26,12 +26,11 @@ export class Article {
    export class LivraisonClient {
     id = 0;
     numero = '';
-    dateCreation = new Date();
+    date = new Date();
     info = '';
     montantHT = 0;
     tva = 0;
     montantTTC = 0;
-    escompte = 0;
     client: Client;
     idClient = null;
     detailLivraisonClients: DetailLivraisonClient[] = [];
