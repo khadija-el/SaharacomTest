@@ -8,15 +8,17 @@ import { LivraisonClientComponent } from './livraison-client/livraison-client.co
 import { UpdateLivraisonComponent } from './livraison-client/update-livraison/update-livraison.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'article', pathMatch: 'full'},
-  { path: 'article', component: ArticleComponent, data: { state: 'connection' } },
-  { path: 'clients', component: ClientComponent, data: { state: 'connection' } },
-  { path: 'livraison', component: LivraisonClientComponent, data: { state: 'connection' } },
-  { path: 'updateLivraison/:id', component: UpdateLivraisonComponent, data: { breadcrumb: 'Update' } },
-  { path: 'update/:id', component: UpdateArticleComponent, data: { breadcrumb: 'Update' } },
-  { path: 'updateC/:id', component: UpdateComponent, data: { breadcrumb: 'UpdateC' } },
+  { path: '', redirectTo: 'articles', pathMatch: 'full'},
+  { path: 'articles', component: ArticleComponent, data: { state: 'connection' } },
+  { path: 'articles/update/:id', component: UpdateArticleComponent, data: { breadcrumb: 'Update' } },
 
-  
+  { path: 'clients', component: ClientComponent, data: { state: 'connection' } },
+  { path: 'clients/update/:id', component: UpdateComponent, data: { breadcrumb: 'UpdateC' } },
+
+  { path: 'livraisons', component: LivraisonClientComponent, data: { state: 'connection' } },
+  { path: 'livraisons/update/:id', component: UpdateLivraisonComponent, data: { breadcrumb: 'Update' } },
+
+
 ];
 
 @NgModule({

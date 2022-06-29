@@ -33,7 +33,7 @@
                     <input matInput [formControl]="montantTTCMin" type="number" required>
                 </mat-form-field>
 
-                                      
+
                 <mat-form-field appearance="fill" class="w-1/4 p-1">
                     <mat-label>Client</mat-label>
                     <mat-select [formControl]="idClient">
@@ -47,7 +47,7 @@
                         <mat-option *ngFor="let e of etatLivraisons | async" [value]="e.id">{{ e['nom'] }}</mat-option>
                     </mat-select>
                 </mat-form-field> -->
-                              
+
                 <mat-form-field appearance="fill" class="w-1/4 p-1">
                     <mat-label>Date Création fin</mat-label>
                     <input matInput [matDatepicker]="pickerdateCreationFin" [formControl]="dateCreationFin">
@@ -59,7 +59,7 @@
                     <mat-label>Montant TTC Max</mat-label>
                     <input matInput [formControl]="montantTTCMax" type="number" required>
                 </mat-form-field>
-          
+
         </div>
 
         <div class="flex flex-row-reverse mb-2 mr-2">
@@ -128,7 +128,7 @@
                     <ng-container matColumnDef="montantTTC">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header>Montant T T C</th>
                         <td mat-cell *matCellDef="let row">{{row.montantTTC}}</td>
-                    </ng-container>              
+                    </ng-container>
 
                     <ng-container matColumnDef="comercial">
                         <th mat-header-cell *matHeaderCellDef mat-sort-header>Comercial</th>

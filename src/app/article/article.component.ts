@@ -93,12 +93,12 @@ export class ArticleComponent implements OnInit,OnDestroy {
 
   add() {
     // this.router.navigate(['update', 0], { relativeTo: this.route });
-    this.router.navigate(['/update', 0]);
+    this.router.navigate(['/articles/update', 0]);
   }
 
   edit(o: Article) {
     // this.router.navigate(['update', o.id], { relativeTo: this.route });
-    this.router.navigate(['/update', o.id]);
+    this.router.navigate(['/articles/update', o.id]);
 
   }
 

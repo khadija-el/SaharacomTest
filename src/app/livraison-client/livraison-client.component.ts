@@ -65,7 +65,7 @@ export class LivraisonClientComponent implements OnInit {
   // comercials = this.uow.comercials.getForSelect();
   // idComercial = new FormControl(0);
   clients = this.uow.clients.getForSelect();
-  
+
   idClient = new FormControl(0);
 
 
@@ -146,11 +146,11 @@ export class LivraisonClientComponent implements OnInit {
 
 
   add() {
-    this.router.navigate(['updateLivraison', 0], { relativeTo: this.route });
+    this.router.navigate(['/livraisons/update', 0], { relativeTo: this.route });
   }
 
   edit(o: LivraisonClient) {
-    this.router.navigate(['updateLivraison', o.id], { relativeTo: this.route });
+    this.router.navigate(['/livraisons/update', o.id], { relativeTo: this.route });
   }
 
   async delete(o: LivraisonClient) {
@@ -208,6 +208,6 @@ export class LivraisonClientComponent implements OnInit {
     this.subs.forEach(e => {
       e.unsubscribe();
     });
-  } 
+  }
 
 }
