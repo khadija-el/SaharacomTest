@@ -22,6 +22,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { LivraisonClientComponent } from './livraison-client/livraison-client.component';
 import { UpdateLivraisonComponent } from './livraison-client/update-livraison/update-livraison.component';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,7 @@ import { UpdateLivraisonComponent } from './livraison-client/update-livraison/up
     
   ],
   providers: [
+   
     { provide: LOCALE_ID, useValue: 'fr-FR'},
   ],
   bootstrap: [AppComponent],
@@ -60,5 +63,6 @@ import { UpdateLivraisonComponent } from './livraison-client/update-livraison/up
 export class AppModule {
   constructor(private injector: Injector) {    // Create global Service Injector.
     InjectService.injector = this.injector;
+    registerLocaleData(localeFr, 'fr')
   }
 }
