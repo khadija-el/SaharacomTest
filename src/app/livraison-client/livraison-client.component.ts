@@ -9,6 +9,7 @@ import { LivraisonClient } from '../Models/models';
 import { UowService } from '../Services/uow.service';
 import { startWith } from 'rxjs/operators';
 
+
 @Component({
   selector: 'app-livraison-client',
   templateUrl: './livraison-client.component.html',
@@ -64,6 +65,7 @@ export class LivraisonClientComponent implements OnInit {
   // comercials = this.uow.comercials.getForSelect();
   // idComercial = new FormControl(0);
   clients = this.uow.clients.getForSelect();
+  
   idClient = new FormControl(0);
 
 
@@ -88,8 +90,8 @@ export class LivraisonClientComponent implements OnInit {
           this.sort.direction ? this.sort.direction : 'desc',
           this.numero.value === '' ? '*' : this.numero.value,
 
-          this.dateCreationDebut.value,
-          this.dateCreationFin.value,
+          formatDate(this.dateCreationDebut.value, 'yyyy-MM-dd', 'fr-FR'),
+          formatDate(this.dateCreationFin.value, 'yyyy-MM-dd', 'fr-FR'),
 
           this.montantTTCMin.value,
           this.montantTTCMax.value,
@@ -202,10 +204,10 @@ export class LivraisonClientComponent implements OnInit {
     }
   }
 
-  ngOnDestroy(): void {
+ ngOnDestroy(): void {
     this.subs.forEach(e => {
       e.unsubscribe();
     });
-  }
+  } 
 
 }
