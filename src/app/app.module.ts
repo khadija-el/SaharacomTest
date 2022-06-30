@@ -24,6 +24,7 @@ import { LivraisonClientComponent } from './livraison-client/livraison-client.co
 import { UpdateLivraisonComponent } from './livraison-client/update-livraison/update-livraison.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { DetailLivraisonClientComponent } from './livraison-client/detail-livraison-client/detail-livraison-client.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import localeFr from '@angular/common/locales/fr';
     UpdateArticleComponent,
     LivraisonClientComponent,
     UpdateLivraisonComponent,
+    DetailLivraisonClientComponent,
   ],
   imports: [
     BrowserModule,

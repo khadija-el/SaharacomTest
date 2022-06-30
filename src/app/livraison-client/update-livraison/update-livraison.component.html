@@ -1,1 +1,53 @@
-<p>update-livraison works!</p>
+<mat-card>
+    <mat-card-title>{{title}}</mat-card-title>
+    <mat-card-content>
+  
+      <form [formGroup]="myForm" class="flex flex-row flex-wrap">
+  
+        <mat-form-field appearance="fill" class="w-1/2 p-1">
+          <mat-label>Numero</mat-label>
+          <input matInput formControlName="numero" type="text" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="w-1/2 p-1">
+          <mat-label>Date Creation</mat-label>
+          <input matInput formControlName="dateCreation" [matDatepicker]="picker2">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="w-1/2 p-1">
+          <mat-label>Info</mat-label>
+          <input matInput formControlName="info" type="text" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="w-1/2 p-1">
+          <mat-label>Client</mat-label>
+          <mat-select formControlName="idClient">
+            <mat-option *ngFor="let e of clients | async" [value]="e.id">{{ e['raisonSocial'] }}</mat-option>
+            <!-- <mat-option *ngFor="let e of clients | async" [value]="e.id">{{e.name}}</mat-option> -->
+          </mat-select>
+        </mat-form-field>
+    
+      </form>
+      <ng-container>
+        <app-detail-livraison-client  [parent]="o" ></app-detail-livraison-client>
+      </ng-container>
+  
+    </mat-card-content>
+  
+    <mat-card-actions>
+      <div class="w-full flex justify-between">
+        <div>
+          <button mat-raised-button color="warn" (click)="delete(myForm.value)"
+            [disabled]="myForm.get('id').value === 0">Delete</button>
+        </div>
+        <div>
+          <button mat-button (click)="back()">Retour</button>
+          <button mat-raised-button color="primary" (click)="submit(myForm.value)"
+            [disabled]="myForm.invalid">Valider</button>
+        </div>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+  
